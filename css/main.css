@@ -33,7 +33,7 @@ p {
 .navbar {
   margin: 5px;
   border-radius: 8px;
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.891);
   height: 60px;
   padding-left: 19px;
 }
@@ -107,17 +107,15 @@ p {
   filter: invert(1);
   margin-top: 5px;
   margin-bottom: 20px;
-  margin-left: 8px;
 }
 
 .about {
   padding-top: 100px;
   padding-bottom: 100px;
-  background: rgb(140, 82, 255);
   background: linear-gradient(
-    135deg,
-    rgba(140, 82, 255, 0) 24%,
-    rgba(47, 67, 161, 0.29175420168067223) 66%
+    225deg,
+    rgba(235, 238, 255, 1) 0%,
+    rgba(211, 190, 255, 0.639093137254902) 100%
   );
 }
 
@@ -129,6 +127,84 @@ p {
 .about .col-7 h1 {
   font-size: 60px;
   font-weight: 600;
+}
+
+.top-destination {
+  padding-top: 50px;
+  padding-bottom: 80px;
+  background: rgb(235, 238, 255);
+  background: rgb(235, 238, 255);
+  background: linear-gradient(
+    45deg,
+    rgba(235, 238, 255, 1) 0%,
+    rgba(211, 190, 255, 0.639093137254902) 100%
+  );
+}
+
+.top-destination-title {
+  text-align: center;
+  font-size: 45px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  color: #2f43a1;
+}
+
+.top-destination .carousel-inner {
+  background: rgb(47, 67, 161);
+  background: linear-gradient(
+    328deg,
+    rgba(47, 67, 161, 1) 15%,
+    rgba(185, 150, 255, 1) 100%
+  );
+  padding: 20px;
+  border-radius: 18px;
+}
+
+.top-destination .carousel-inner .col-6 .top-destination-img {
+  border-radius: 10px;
+}
+
+.top-destination .carousel-inner .col-6 h1,
+h2,
+h3,
+h4 {
+  color: white;
+}
+
+.top-destination .carousel-inner .col-6 h1 {
+  font-size: 48px;
+  font-weight: 600;
+  margin-top: 6px;
+}
+.top-destination .carousel-inner .col-6 h2 {
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.top-destination .carousel-inner .col-6 h3 {
+  font-weight: 600;
+}
+.top-destination .carousel-inner .col-6 h4 {
+  font-family: "Noto Serif", serif;
+  font-weight: 300;
+  margin-bottom: 22px;
+}
+
+/* Carousel controls */
+.carousel-control-next,
+.carousel-control-prev {
+  width: 50px;
+  height: 50px;
+  top: auto;
+  right: 20px;
+  left: auto;
+  bottom: 20px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.carousel-control-prev {
+  left: 20px;
 }
 
 /* Trips */
@@ -162,65 +238,49 @@ p {
 }
 
 .b-trips {
-  width: 100%;
   height: auto;
   background-color: #2f43a1;
 }
 
 .b-trips-top-group {
-  width: 100%;
-  height: 100px;
-  padding-left: 10%;
-  padding-right: 10%;
   padding-top: 40px;
   color: white;
 }
 
-.b-trips-top-group h1 {
-  float: left;
-}
-
-.b-trips-top-group button {
-  width: 80px;
-  height: 40px;
-  font-family: "Noto Serif", serif;
-  background-color: white;
-  color: #2f43a1;
-  font-weight: bold;
-  border-radius: 5px;
-}
-
-.b-trips-top-group button:hover {
-  width: 80px;
-  height: 40px;
-  font-family: "Noto Serif", serif;
-  background-color: #2f43a1;
-  color: white;
-  font-weight: bold;
-  border-radius: 5px;
-}
-
-.b-trips-button-group {
-  width: 180px;
-  height: auto;
-  float: right;
-}
-
 .b-trips-top-line {
-  width: 80%;
+  width: 100%;
   height: 5px;
-  margin-left: 10%;
-  margin-right: 10%;
   margin-bottom: 50px;
   background-color: white;
 }
 
+/* Drop down menus for filtering and sorting */
+.btn-group {
+  margin-bottom: 50px;
+}
+
+.dropdown button {
+  margin-right: 10px;
+}
+
+.dropdown-menu {
+  padding: 10px;
+  -webkit-box-shadow: 0px 7px 15px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 7px 15px 5px rgba(0, 0, 0, 0.5);
+}
+
+.dropdown-menu p {
+  margin-bottom: 5px;
+}
+
 /* Trips card style */
 .card {
-  width: 300px;
+  width: 370px;
   height: auto;
-  border-radius: 0px 80px 0px 0px;
-  margin-bottom: 40px;
+  border-radius: 10px 80px 10px 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
   border: none;
   box-shadow: -4px 12px 52px 6px rgba(0, 0, 0, 0.57);
   -webkit-box-shadow: -4px 12px 52px 6px rgba(0, 0, 0, 0.57);
@@ -235,8 +295,7 @@ p {
 card.extend {
   width: 400px;
   height: auto;
-  border-radius: 0px 80px 0px 0px;
-  margin-bottom: 40px;
+  border-radius: 10px 80px 10px 10px;
   border: none;
   box-shadow: -4px 12px 52px 6px rgba(0, 0, 0, 0.57);
   -webkit-box-shadow: -4px 12px 52px 6px rgba(0, 0, 0, 0.57);
@@ -247,11 +306,26 @@ card.extend {
 .card-img-top {
   height: 250px;
   width: auto;
-  border-radius: 0px 80px 0px 0px;
+  border-radius: 10px 80px 0px 0px;
 }
 
 .price-text {
   font-size: 20px;
+}
+
+.card-top-group {
+  width: 280px;
+  height: 50px;
+  color: white;
+  margin-top: -245px;
+  margin-bottom: 195px;
+  margin-left: 15px;
+  fill: white;
+}
+
+.card-top-group p {
+  font-size: 28px;
+  text-shadow: -2px 3px 9px #000000, 5px 1px 9px #ce5937;
 }
 /* Style before click */
 /* Style after click */

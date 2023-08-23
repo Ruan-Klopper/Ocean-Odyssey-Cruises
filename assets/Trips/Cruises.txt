@@ -1,0 +1,35 @@
+1. Tropical Paradise Getaway
+Description: Escape to sun-kissed shores, turquoise waters, and palm-fringed beaches in this tropical paradise cruise. Immerse yourself in vibrant local cultures, indulge in exotic cuisine, and bask in the warmth of the tropics.
+Price: Starting at $1,999 per person.
+
+2. Majestic Fjords Expedition
+Description: Embark on a journey through breathtaking fjords, towering cliffs, and pristine glaciers. Discover the awe-inspiring beauty of nature as you explore remote landscapes and witness wildlife in its natural habitat.
+Price: Starting at $2,499 per person.
+
+3. Historical European Discovery
+Description: Step back in time as you sail along the picturesque coastlines of Europe. Uncover the rich history, charming villages, and iconic landmarks that have shaped the continent. Immerse yourself in the Old World charm of Europe's most beloved cities.
+Price: Starting at $2,799 per person.
+
+4. Exotic Asian Odyssey
+Description: Embark on a cultural immersion through the diverse and enchanting landscapes of Asia. From bustling metropolises to serene temples, experience the contrasts and beauty of this captivating continent.
+Price: Starting at $2,299 per person.
+
+5. Polar Expedition: Arctic Wonders
+Description: Venture to the Arctic Circle and witness the enchanting world of icebergs, polar bears, and the mesmerizing Northern Lights. Explore the untouched wilderness of the Arctic and create memories of a lifetime.
+Price: Starting at $3,499 per person.
+
+6. Caribbean Rhythms Cruise
+Description: Dive into the vibrant energy of the Caribbean as you visit multiple tropical islands. From reggae beats to pristine coral reefs, this cruise offers a perfect blend of relaxation and adventure.
+Price: Starting at $1,799 per person.
+
+7. Transatlantic Crossing
+Description: Experience the classic elegance of ocean travel with a transatlantic crossing. Enjoy leisurely days at sea, engaging activities, and luxurious accommodations as you journey between continents.
+Price: Starting at $1,999 per person.
+
+Card:
+<p class="card-text">
+                  Escape to sun-kissed shores, turquoise waters, and
+                  palm-fringed beaches in this tropical paradise cruise. Immerse
+                  yourself in vibrant local cultures, indulge in exotic cuisine,
+                  and bask in the warmth of the tropics.
+                </p>
