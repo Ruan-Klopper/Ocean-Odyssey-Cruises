@@ -38,6 +38,20 @@ p {
   padding-left: 19px;
 }
 
+.nav-photo{
+  width: 100px;
+  height: 30px;
+  background-image: url(../assets/LOGO/purple-clear.png);
+  background-size: contain;
+}
+
+.nav-photo:hover{
+  width: 100px;
+  height: 30px;
+  background-image: url(../assets/LOGO/black-clear.png);
+  background-size: contain;
+}
+
 .nav-link {
   font-family: "Noto Serif", serif;
   color: #2f44a1da;
@@ -129,6 +143,19 @@ p {
   font-weight: 600;
 }
 
+.accordion{
+  margin-top: 80px;
+}
+
+.tandc p{
+  margin-top: 20px;
+  font-weight: 800;
+}
+
+.accordion-button{
+  background-color: #ffffff;
+}
+
 .top-destination {
   padding-top: 50px;
   padding-bottom: 80px;
@@ -164,10 +191,7 @@ p {
   border-radius: 10px;
 }
 
-.top-destination .carousel-inner .col-6 h1,
-h2,
-h3,
-h4 {
+.top-destination .carousel-inner .col-6 {
   color: white;
 }
 
@@ -176,13 +200,16 @@ h4 {
   font-weight: 600;
   margin-top: 6px;
 }
+
 .top-destination .carousel-inner .col-6 h2 {
   font-weight: 600;
   margin-bottom: 20px;
 }
+
 .top-destination .carousel-inner .col-6 h3 {
   font-weight: 600;
 }
+
 .top-destination .carousel-inner .col-6 h4 {
   font-family: "Noto Serif", serif;
   font-weight: 300;
@@ -264,6 +291,7 @@ h4 {
 }
 
 .dropdown-menu {
+  width: 180px;
   padding: 10px;
   -webkit-box-shadow: 0px 7px 15px 5px rgba(0, 0, 0, 0.5);
   box-shadow: 0px 7px 15px 5px rgba(0, 0, 0, 0.5);
@@ -327,5 +355,74 @@ card.extend {
   font-size: 28px;
   text-shadow: -2px 3px 9px #000000, 5px 1px 9px #ce5937;
 }
+
+.show-more-label{
+  cursor: pointer;
+  font-family: "Noto Serif", serif;
+  margin-top: 8px;
+  margin-bottom: -5px;
+}
+
+.show-more-label:hover{
+  font-weight: bolder ;
+}
+
 /* Style before click */
 /* Style after click */
+
+/* Cart section */
+.checkout-bg {
+  background-color: #2f43a1;
+  padding-top: 100px;
+  padding-bottom: 22%;
+}
+
+.checkout-mid {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.payment-btn{
+  margin-top: 25px;
+}
+
+/* FOOTER SECTION ACROSS ALL PAGES */
+
+footer{
+  background-color: #000000;
+  color: white;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+footer a{
+  text-decoration: none;
+  color: white;
+}
+
+footer a h2{
+  font-size: 20px;
+}
+
+.footer-mid{
+  text-align: center;
+}
+
+.footer-active{
+  font-weight: 800;
+}
+
+.footer-end{
+  text-align: end;
+  margin-top: 10px;
+}
+
+.footer-end h3{
+  font-size: 20px;
+}
+.footer-end a h3{
+  text-decoration: underline;
+}
+
+

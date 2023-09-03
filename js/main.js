@@ -1,13 +1,15 @@
-const tripsArr = [
+let tripsArr = [
   {
     name: "Tropical Paradise Getaway",
     description:
       "Escape to sun-kissed shores, turquoise waters, and palm-fringed beaches in this tropical paradise cruise. Immerse yourself in vibrant local cultures, indulge in exotic cuisine, and bask in the warmth of the tropics.",
     price: 20999,
     image: "1.jpg",
-    duration: 7,
+    duration: 4,
     location: "Male",
     special: "true",
+    roundtrip: true,
+    destinations: ["Male, Maldives", "Bora Bora, French Polynesia"],
   },
   {
     name: "Majestic Fjords Expedition",
@@ -18,6 +20,8 @@ const tripsArr = [
     duration: 10,
     location: "Bergen",
     special: "false",
+    roundtrip: true,
+    destinations: ["Bergen, Norway"],
   },
   {
     name: "Historical European Discovery",
@@ -28,6 +32,8 @@ const tripsArr = [
     duration: 14,
     location: "Rome",
     special: "false",
+    roundtrip: true,
+    destinations: ["Rome, Italy", "Venice, Italy", "Florence, Italy"],
   },
   {
     name: "Exotic Asian Odyssey",
@@ -38,6 +44,8 @@ const tripsArr = [
     duration: 12,
     location: "Bangkok",
     special: "true",
+    roundtrip: false,
+    destinations: ["Bangkok, Thailand"],
   },
   {
     name: "Polar Expedition: Arctic Wonders",
@@ -48,6 +56,8 @@ const tripsArr = [
     duration: 9,
     location: "Longyearbyen",
     special: "true",
+    roundtrip: false,
+    destinations: ["Longyearbyen, Svalbard, Norway"],
   },
   {
     name: "Caribbean Rhythms Cruise",
@@ -55,9 +65,11 @@ const tripsArr = [
       "Dive into the vibrant energy of the Caribbean as you visit multiple tropical islands. From reggae beats to pristine coral reefs, this cruise offers a perfect blend of relaxation and adventure.",
     price: 24499,
     image: "6.jpg",
-    duration: 7,
+    duration: 3,
     location: "Montego Bay",
     special: "false",
+    roundtrip: true,
+    destinations: ["Montego Bay, Jamaica", "Nassau, Bahamas"],
   },
   {
     name: "Transatlantic Crossing",
@@ -68,17 +80,23 @@ const tripsArr = [
     duration: 15,
     location: "New York City",
     special: "false",
+    roundtrip: false,
+    destinations: ["New York City, USA", "Southampton, UK"],
   },
 ];
 
+
 let applFilter = "";
 let applSort = "low to high price";
+let orders = [];
 
 //Doc Ready--------------------------------------------------------------------
 $(document).ready(function () {
   sortingFilting();
   $("#card-description").hide();
   loadCarouselSlides();
+  $("#placeOrder").hide();
+  $("#indexh1").text("Welcome to");
 });
 //END OF Doc Ready--------------------------------------------------------------------
 
@@ -141,8 +159,10 @@ function addTrips(dispTrips) {
       .find(".card-img-top")
       .attr("src", "../assets/home/" + trip.image);
     $(cChild).find("#card-description").hide();
+    $(cChild).find("#placeOrder").hide();
   }
 }
+
 
 // Add carousel slide to home page
 
@@ -152,9 +172,9 @@ function loadCarouselSlides() {
   for (let i = 0; i < tripsArr.length; i++) {
     const trip = tripsArr[i];
 
-    const slide = $($("#tripTemplateSlide").html());
+    let slide = $($("#tripTemplateSlide").html());
     if (i === 0) {
-      slide.addClass("active"); // Add active class to the first slide
+      slide.addClass("active");
     }
 
     $.ajax({
@@ -167,13 +187,11 @@ function loadCarouselSlides() {
         tempData = data;
       },
     }).done(function () {
-      //Make the first letter caps
       let weatherDescription = tempData.weather[0].description;
       let capitalizedWeather =
         weatherDescription.charAt(0).toUpperCase() +
         weatherDescription.slice(1);
 
-      //Add to top of the card
       slide
         .find("#destination-weather")
         .text(
@@ -200,7 +218,6 @@ function loadCarouselSlides() {
 
 $("input[name='filteringRadio']").click(function () {
   applFilter = $(this).attr("value");
-
   sortingFilting();
 });
 
@@ -218,6 +235,24 @@ function sortingFilting() {
 
   if (applFilter == "special") {
     completed = tripsArr.filter((trip) => trip.special == "true");
+  }
+  else if (applFilter == "short-duration") { 
+    completed = tripsArr.filter((trip) => trip.duration < 5);
+  }
+  else if (applFilter == "long-duration") { 
+    completed = tripsArr.filter((trip) => trip.duration >= 5);
+  }
+  else if (applFilter == "single-destination") { 
+    completed = tripsArr.filter((trip) => trip.destinations.length == 1);
+  }
+  else if (applFilter == "multi-destination") { 
+    completed = tripsArr.filter((trip) => trip.destinations.length > 1);
+  }
+  else if (applFilter == "round-trip") { 
+    completed = tripsArr.filter((trip) => trip.roundtrip == true);
+  }
+  else if (applFilter == "ooc-special") { 
+      completed = tripsArr.sort((a, b) => a.price - b.price).slice(0, 5);
   } else {
     completed = tripsArr;
   }
@@ -244,7 +279,38 @@ function sortingFilting() {
   addTrips(completed);
 }
 
-$("#trips-container").on("click", ".card", function () {
-  $(this).find("#card-description").toggle();
-  $(this).find(".card").toggleClass("extend");
+
+// On label click - hides/unhides description text and button
+$("#trips-container").on("click", ".show-more-label", function () {
+  $(this).closest(".card-body").find("#card-description").toggle();
+  $(this).closest(".card-body").find("#placeOrder").toggle();
+  $(this).closest(".card").toggleClass("extend");
+  let label = $(this);
+
+  if (label.text() === "Show more") {
+    label.text("Show less");
+  } else {
+    label.text("Show more");
+  }
+});
+
+// --------------------------------------------------------
+// Add trip to local data - Trips page
+$("#trips-container").on("click", ".btn-primary", function () {
+  let name = $(this).closest(".card-body").find(".card-title").text();
+
+  let found = false;
+
+  for (let i = 0; i < tripsArr.length; i++) {
+    const element = tripsArr[i];
+    if (name === element.name) {
+      orders.push(element);
+      found = true;
+      break;
+    }
+  }
+
+  if (found) {
+    localStorage.setItem("orderedTrips", JSON.stringify(orders));
+  }
 });
